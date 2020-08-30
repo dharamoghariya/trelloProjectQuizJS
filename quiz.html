@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <br />
+
+    <div class="container" tag="#container">
+      <form id="my-form">
+        <h1>Quiz</h1>
+
+        <div id="question">
+          <fieldset aria-required="true">
+            <legend id="queID">Question No.:</legend>
+            <label for="name" id="que">Question</label>
+            <div class="divOpt">
+              <input
+                class="opt"
+                type="radio"
+                name="conf"
+                id="answer1"
+                value="a"
+                required=""
+              />
+              <label class="opt" id="a" for="answer1">Opt 1</label>
+            </div>
+            <div class="divOpt">
+              <input
+                class="opt"
+                type="radio"
+                name="conf"
+                id="answer2"
+                value="b"
+                required=""
+              />
+              <label class="opt" id="b" for="answer2">Opt 2</label>
+            </div>
+            <div class="divOpt">
+              <input
+                class="opt"
+                type="radio"
+                name="conf"
+                id="answer3"
+                value="c"
+                required=""
+              />
+              <label class="opt" id="c" for="answer3">Opt 3</label>
+            </div>
+            <div class="divOpt">
+              <input
+                class="opt"
+                type="radio"
+                name="conf"
+                id="answer4"
+                value="d"
+                required=""
+              />
+              <label class="opt" id="d" for="answer3">Opt 4</label>
+            </div>
+          </fieldset>
+          <br />
+        </div>
+      </form>
+
+      <input class="right" class="btn" id="btn" type="Submit" value="Next" />
+      <!-- <input id="btn" type="Submit" value="Submit" /> -->
+    </div>
+    <br />
+    <script src="quiz.js"></script>
+  </body>
+</html>
