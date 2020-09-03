@@ -220,27 +220,6 @@ document.getElementById("btn").addEventListener("click", (e) => {
 });
 */
 
-createDiv(myQuestion);
-
-function createDiv(queObject) {
-  var queAppend = document.createElement("div");
-  var fieldset = document.createElement("fieldset");
-  var legend = createLegend(queObject);
-  var label = createID(queObject);
-  var divA = createOptA(queObject);
-  var divB = createOptB(queObject);
-  var divC = createOptC(queObject);
-  var divD = createOptD(queObject);
-
-  queAppend.appendChild(fieldset);
-  fieldset.appendChild(legend);
-  fieldset.appendChild(label);
-  fieldset.appendChild(divA);
-  fieldset.appendChild(divB);
-  fieldset.appendChild(divC);
-  fieldset.appendChild(divD);
-}
-
 function createLegend(queObject) {
   var legend = document.createElement("legend");
   legend.id = "queID";
@@ -314,6 +293,30 @@ function createOptD(queObject) {
   divD.appendChild(labelD);
   return divD;
 }
+
+function createDiv(queObject) {
+  var queAppend = document.createElement("div");
+  var fieldset = document.createElement("fieldset");
+  var legend = createLegend(queObject);
+  var label = createID(queObject);
+  var divA = createOptA(queObject);
+  var divB = createOptB(queObject);
+  var divC = createOptC(queObject);
+  var divD = createOptD(queObject);
+
+  queAppend.appendChild(fieldset);
+  fieldset.appendChild(legend);
+  fieldset.appendChild(label);
+  fieldset.appendChild(divA);
+  fieldset.appendChild(divB);
+  fieldset.appendChild(divC);
+  fieldset.appendChild(divD);
+  return queAppend;
+}
+
+var queObjectDiv = createDiv(myQuestion);
+
+document.getElementById("my-form").appendChild(queObjectDiv);
 
 /*
 var queAppend = document.createElement("div");
