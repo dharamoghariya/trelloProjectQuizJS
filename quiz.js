@@ -181,207 +181,62 @@ var myQuestion = [
   },
 ];
 
-let que = 0;
-
-/*
-document.getElementById("queID").textContent = myQuestion[que].id;
-document.getElementById("que").textContent = myQuestion[que].text;
-document.getElementById("a").textContent = myQuestion[que].a;
-document.getElementById("b").textContent = myQuestion[que].b;
-document.getElementById("c").textContent = myQuestion[que].c;
-document.getElementById("d").textContent = myQuestion[que].d;
-
-var x = document.getElementById("btn");
-
-let flag = 0;
-
-document.getElementById("btn").addEventListener("click", (e) => {
-  e.preventDefault();
-  console.log("click");
-  que++;
-  if (que < myQuestion.length) {
-    document.getElementById("queID").textContent = myQuestion[que].id;
-    document.getElementById("que").textContent = myQuestion[que].text;
-    document.getElementById("a").textContent = myQuestion[que].a;
-    document.getElementById("b").textContent = myQuestion[que].b;
-    document.getElementById("c").textContent = myQuestion[que].c;
-    document.getElementById("d").textContent = myQuestion[que].d;
-    if (que == myQuestion.length - 1) {
-      flag = 1;
-    }
-  } else if (que == myQuestion.length) {
-    alert("Submit");
-  }
-  if (flag == 0) {
-    x.value = "Next";
-  } else {
-    x.value = "Submit";
-  }
-});
-*/
-
+console.log("We got here! --- 1");
 function createLegend(queObject) {
   var legend = document.createElement("legend");
   legend.id = "queID";
-  legend.innerHTML = myQuestion[que].id;
+  legend.innerHTML = queObject.id;
   return legend;
 }
 
 function createID(queObject) {
   var label = document.createElement("label");
   label.id = "que";
-  label.innerHTML = myQuestion[que].text;
+  label.innerHTML = queObject.text;
   return label;
 }
 
-function createOptA(queObject) {
-  var divA = document.createElement("div");
-  divA.className = "divOpt";
-  var inputA = document.createElement("input");
-  inputA.className = "opt";
-  inputA.type = "radio";
-  var labelA = document.createElement("label");
-  labelA.className = "opt";
-  labelA.id = "a";
-  labelA.innerHTML = myQuestion[que].a;
-  divA.appendChild(inputA);
-  divA.appendChild(labelA);
-  return divA;
-}
-
-function createOptB(queObject) {
-  var divB = document.createElement("div");
-  divB.className = "divOpt";
-  var inputB = document.createElement("input");
-  inputB.className = "opt";
-  inputB.type = "radio";
-  var labelB = document.createElement("label");
-  labelB.className = "opt";
-  labelB.id = "a";
-  labelB.innerHTML = myQuestion[que].b;
-  divB.appendChild(inputB);
-  divB.appendChild(labelB);
-  return divB;
-}
-
-function createOptC(queObject) {
-  var divC = document.createElement("div");
-  divC.className = "divOpt";
-  var inputC = document.createElement("input");
-  inputC.className = "opt";
-  inputC.type = "radio";
-  var labelC = document.createElement("label");
-  labelC.className = "opt";
-  labelC.id = "a";
-  labelC.innerHTML = myQuestion[que].c;
-  divC.appendChild(inputC);
-  divC.appendChild(labelC);
-  return divC;
-}
-
-function createOptD(queObject) {
-  var divD = document.createElement("div");
-  divD.className = "divOpt";
-  var inputD = document.createElement("input");
-  inputD.className = "opt";
-  inputD.type = "radio";
-  var labelD = document.createElement("label");
-  labelD.className = "opt";
-  labelD.id = "a";
-  labelD.innerHTML = myQuestion[que].d;
-  divD.appendChild(inputD);
-  divD.appendChild(labelD);
-  return divD;
+function createOpt(queObject, optAns) {
+  var divOpt = document.createElement("div");
+  divOpt.className = "divOpt";
+  var input = document.createElement("input");
+  input.className = "opt";
+  input.type = "radio";
+  var label = document.createElement("label");
+  label.className = "opt";
+  label.id = optAns;
+  label.innerHTML = queObject[optAns];
+  divOpt.appendChild(input);
+  divOpt.appendChild(label);
+  return divOpt;
 }
 
 function createDiv(queObject) {
   var queAppend = document.createElement("div");
+  queAppend.className = "divQue";
   var fieldset = document.createElement("fieldset");
   var legend = createLegend(queObject);
   var label = createID(queObject);
-  var divA = createOptA(queObject);
-  var divB = createOptB(queObject);
-  var divC = createOptC(queObject);
-  var divD = createOptD(queObject);
+  var divOptA = createOpt(queObject, "a");
+  var divOptB = createOpt(queObject, "b");
+  var divOptC = createOpt(queObject, "c");
+  var divOptD = createOpt(queObject, "d");
 
   queAppend.appendChild(fieldset);
   fieldset.appendChild(legend);
   fieldset.appendChild(label);
-  fieldset.appendChild(divA);
-  fieldset.appendChild(divB);
-  fieldset.appendChild(divC);
-  fieldset.appendChild(divD);
+  fieldset.appendChild(divOptA);
+  fieldset.appendChild(divOptB);
+  fieldset.appendChild(divOptC);
+  fieldset.appendChild(divOptD);
   return queAppend;
 }
 
-var queObjectDiv = createDiv(myQuestion);
+//var queObjectDiv = createDiv(myQuestion[0]);
 
-document.getElementById("my-form").appendChild(queObjectDiv);
+//document.getElementById("my-form").appendChild(queObjectDiv);
 
-/*
-var queAppend = document.createElement("div");
-var fieldset = document.createElement("fieldset");
-var legend = document.createElement("legend");
-legend.id = "queID";
-legend.innerHTML = myQuestion[que].id;
-var label = document.createElement("label");
-label.id = "que";
-label.innerHTML = myQuestion[que].text;
-var divA = document.createElement("div");
-divA.className = "divOpt";
-var inputA = document.createElement("input");
-inputA.className = "opt";
-inputA.type = "radio";
-var labelA = document.createElement("label");
-labelA.className = "opt";
-labelA.id = "a";
-labelA.innerHTML = myQuestion[que].a;
-var divB = document.createElement("div");
-divB.className = "divOpt";
-var inputB = document.createElement("input");
-inputB.className = "opt";
-inputB.type = "radio";
-var labelB = document.createElement("label");
-labelB.className = "opt";
-labelB.id = "a";
-labelB.innerHTML = myQuestion[que].b;
-var divC = document.createElement("div");
-divC.className = "divOpt";
-var inputC = document.createElement("input");
-inputC.className = "opt";
-inputC.type = "radio";
-var labelC = document.createElement("label");
-labelC.className = "opt";
-labelC.id = "a";
-labelC.innerHTML = myQuestion[que].c;
-var divD = document.createElement("div");
-divD.className = "divOpt";
-var inputD = document.createElement("input");
-inputD.className = "opt";
-inputD.type = "radio";
-var labelD = document.createElement("label");
-labelD.className = "opt";
-labelD.id = "a";
-labelD.innerHTML = myQuestion[que].d;
-
-queAppend.appendChild(fieldset);
-fieldset.appendChild(legend);
-fieldset.appendChild(label);
-fieldset.appendChild(divA);
-divA.appendChild(inputA);
-divA.appendChild(labelA);
-fieldset.appendChild(divB);
-divB.appendChild(inputB);
-divB.appendChild(labelB);
-fieldset.appendChild(divC);
-divC.appendChild(inputC);
-divC.appendChild(labelC);
-fieldset.appendChild(divD);
-divD.appendChild(inputD);
-divD.appendChild(labelD);
-
-
-//document.getElementById("my-form").appendChild(queAppend);
+let que = 0;
 
 var x = document.getElementById("btn");
 
@@ -390,7 +245,8 @@ let flag = 0;
 let queNo;
 
 for (que, queNo = 5; queNo != 0 && que < myQuestion.length; que++, queNo--) {
-  document.getElementById("my-form").appendChild(queAppend);
+  var queObjectDiv = createDiv(myQuestion[que]);
+  document.getElementById("quizQuestions").appendChild(queObjectDiv);
 }
 
 document.getElementById("btnNext").addEventListener("click", (e) => {
@@ -432,43 +288,3 @@ document.getElementById("btnNext").addEventListener("click", (e) => {
     x.value = "Submit";
   }
 });
-
-
-*/
-
-/* let que = 0;
-
-document.getElementById("queID").textContent = myQuestion[que].id;
-document.getElementById("que").textContent = myQuestion[que].text;
-document.getElementById("a").textContent = myQuestion[que].a;
-document.getElementById("b").textContent = myQuestion[que].b;
-document.getElementById("c").textContent = myQuestion[que].c;
-document.getElementById("d").textContent = myQuestion[que].d;
-
-var x = document.getElementById("btn");
-
-let flag = 0;
-
-document.getElementById("btn").addEventListener("click", (e) => {
-  e.preventDefault();
-  console.log("click");
-  que++;
-  if (que < myQuestion.length) {
-    document.getElementById("queID").textContent = myQuestion[que].id;
-    document.getElementById("que").textContent = myQuestion[que].text;
-    document.getElementById("a").textContent = myQuestion[que].a;
-    document.getElementById("b").textContent = myQuestion[que].b;
-    document.getElementById("c").textContent = myQuestion[que].c;
-    document.getElementById("d").textContent = myQuestion[que].d;
-    if (que == myQuestion.length - 1) {
-      flag = 1;
-    }
-  } else if (que == myQuestion.length) {
-    alert("Submit");
-  }
-  if (flag == 0) {
-    x.value = "Next";
-  } else {
-    x.value = "Submit";
-  }
-}); */

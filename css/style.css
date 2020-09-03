@@ -1,6 +1,6 @@
 * {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 7%;
+  margin-right: 7%;
 }
 
 body {
@@ -37,6 +37,15 @@ body {
   margin: 10px 5px 0 0;
 }
 
+.divQue {
+  padding-bottom: 15px;
+}
+
+fieldset {
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
 font {
   display: block;
   padding: 0 10px;
@@ -45,7 +54,7 @@ font {
 }
 
 #my-form {
-  padding: 2rem;
+  padding: 10px;
   background: #e2dfdf;
 }
 
