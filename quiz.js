@@ -1,3 +1,4 @@
+// Set of Question Object
 var myQuestion = [
   {
     id: "Question 1",
@@ -181,6 +182,7 @@ var myQuestion = [
   },
 ];
 
+// To Write Question Number
 function createLegend(queObject) {
   var legend = document.createElement("legend");
   legend.id = "queID";
@@ -188,6 +190,7 @@ function createLegend(queObject) {
   return legend;
 }
 
+// To Write Question Text
 function createID(queObject) {
   var label = document.createElement("label");
   label.id = "que";
@@ -195,6 +198,7 @@ function createID(queObject) {
   return label;
 }
 
+// To create Option Div
 function createOpt(queObject, optAns) {
   var divOpt = document.createElement("div");
   divOpt.className = "divOpt";
@@ -210,6 +214,7 @@ function createOpt(queObject, optAns) {
   return divOpt;
 }
 
+// Main function
 function createDiv(queObject) {
   var queAppend = document.createElement("div");
   queAppend.className = "divQue";
@@ -231,28 +236,26 @@ function createDiv(queObject) {
   return queAppend;
 }
 
-//var queObjectDiv = createDiv(myQuestion[0]);
-//document.getElementById("my-form").appendChild(queObjectDiv);
-
+// To clear Div of question
 function clearBox(elementID) {
   var div = document.getElementById(elementID);
-
   while (div.firstChild) {
     div.removeChild(div.firstChild);
   }
 }
 
+// Set of variables
 let que = 0;
-
 let flag = 0;
-
 let queNo;
 
+// To Display first set of question
 for (que, queNo = 5; queNo != 0 && que < myQuestion.length; que++, queNo--) {
   var queObjectDiv = createDiv(myQuestion[que]);
   document.getElementById("quizQuestions").appendChild(queObjectDiv);
 }
 
+// Next Button Operation
 document.getElementById("btnNext").addEventListener("click", (e) => {
   e.preventDefault();
   console.log("click");
@@ -277,6 +280,7 @@ document.getElementById("btnNext").addEventListener("click", (e) => {
   }
 });
 
+// Previous Button Operation
 document.getElementById("btnPrev").addEventListener("click", (e) => {
   e.preventDefault();
   console.log("click");
