@@ -1,6 +1,6 @@
-var myQuestion = [
+myQuestions = [
   {
-    id: "Question 1",
+    "id": "Question 1",
     text: "This is sample question having answers listed below",
     a: "option a",
     b: "option b",
