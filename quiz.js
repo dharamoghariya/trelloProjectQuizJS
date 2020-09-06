@@ -256,7 +256,9 @@ for (que, queNo = 5; queNo != 0 && que < myQuestion.length; que++, queNo--) {
 document.getElementById("btnNext").addEventListener("click", (e) => {
   e.preventDefault();
   console.log("click");
-  clearBox("quizQuestions");
+  if (que < myQuestion.length) {
+    clearBox("quizQuestions");
+  }
   que += queNo;
   for (que, queNo = 5; queNo != 0 && que < myQuestion.length; que++, queNo--) {
     var queObjectDiv = createDiv(myQuestion[que]);
@@ -269,9 +271,9 @@ document.getElementById("btnNext").addEventListener("click", (e) => {
   if (flag == 1) {
     var x = document.getElementById("btnNext");
     x.value = "Submit";
-    x.style.padding = "15px";
+    x.style.padding = "15px"; //For Proper Alignment
     var y = document.getElementById("btnPrev");
-    y.style.padding = "15px";
+    y.style.padding = "15px"; //For Proper Alignment
   }
 });
 
@@ -279,17 +281,15 @@ document.getElementById("btnPrev").addEventListener("click", (e) => {
   e.preventDefault();
   console.log("click");
   que++;
-  if (que <= 5) {
-    alert('Question starts from here, click "Next" for more questions.');
-  } else if (que > 5) {
+  if (que > 6) {
     clearBox("quizQuestions");
-    for (
-      que = que - 11, queNo = 5;
-      queNo != 0 && 10 < que < myQuestion.length;
-      que++, queNo--
-    ) {
-      var queObjectDiv = createDiv(myQuestion[que]);
-      document.getElementById("quizQuestions").appendChild(queObjectDiv);
-    }
+  }
+  for (
+    que = que - 11, queNo = 5;
+    queNo != 0 && 10 < que < myQuestion.length;
+    que++, queNo--
+  ) {
+    var queObjectDiv = createDiv(myQuestion[que]);
+    document.getElementById("quizQuestions").appendChild(queObjectDiv);
   }
 });
