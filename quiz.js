@@ -234,9 +234,15 @@ function createDiv(queObject) {
 //var queObjectDiv = createDiv(myQuestion[0]);
 //document.getElementById("my-form").appendChild(queObjectDiv);
 
-let que = 0;
+function clearBox(elementID) {
+  var div = document.getElementById(elementID);
 
-var x = document.getElementById("btn");
+  while (div.firstChild) {
+    div.removeChild(div.firstChild);
+  }
+}
+
+let que = 0;
 
 let flag = 0;
 
@@ -250,40 +256,40 @@ for (que, queNo = 5; queNo != 0 && que < myQuestion.length; que++, queNo--) {
 document.getElementById("btnNext").addEventListener("click", (e) => {
   e.preventDefault();
   console.log("click");
+  clearBox("quizQuestions");
   que += queNo;
   for (que, queNo = 5; queNo != 0 && que < myQuestion.length; que++, queNo--) {
     var queObjectDiv = createDiv(myQuestion[que]);
     document.getElementById("quizQuestions").appendChild(queObjectDiv);
   }
-  if (que == myQuestion.length - 1) {
+  if (que == myQuestion.length) {
+    //alert("Submit");
     flag = 1;
   }
-  if (que == myQuestion.length) {
-    alert("Submit");
-  }
-  if (flag == 0) {
-    x.value = "Next";
-  } else {
+  if (flag == 1) {
+    var x = document.getElementById("btnNext");
     x.value = "Submit";
+    x.style.padding = "15px";
+    var y = document.getElementById("btnPrev");
+    y.style.padding = "15px";
   }
 });
 
-document.getElementById("btnNext").addEventListener("click", (e) => {
+document.getElementById("btnPrev").addEventListener("click", (e) => {
   e.preventDefault();
   console.log("click");
   que++;
-  for (que, queNo = 5; queNo != 0 && que < myQuestion.length; que++, queNo--) {
-    document.getElementById("my-form").appendChild(queAppend);
-  }
-  if (que == myQuestion.length - 1) {
-    flag = 1;
-  }
-  if (que == myQuestion.length) {
-    alert("Submit");
-  }
-  if (flag == 0) {
-    x.value = "Next";
-  } else {
-    x.value = "Submit";
+  if (que <= 5) {
+    alert('Question starts from here, click "Next" for more questions.');
+  } else if (que > 5) {
+    clearBox("quizQuestions");
+    for (
+      que = que - 11, queNo = 5;
+      queNo != 0 && 10 < que < myQuestion.length;
+      que++, queNo--
+    ) {
+      var queObjectDiv = createDiv(myQuestion[que]);
+      document.getElementById("quizQuestions").appendChild(queObjectDiv);
+    }
   }
 });
